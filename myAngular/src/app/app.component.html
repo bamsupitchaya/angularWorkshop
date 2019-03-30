@@ -1,0 +1,57 @@
+<!-- The content below is only a placeholder and can be replaced.
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <form>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Name</span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="name">
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">score</span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="score">
+    </div>
+    <span *ngIf="score>50">grade A</span>
+    <span *ngIf="score<50">grade F</span>
+</form>      -->
+<h1>รายชื่อนักเรียน</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>ID</th>
+      <th>Student ID</th>
+      <th>Weight</th>
+      <th>Height</th>
+      <th>BMI</th>
+      <th>รูปร่าง</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>{{student.studentID}}</td>
+      <td>{{student.name}}</td>
+      <td>{{student.weight}}</td>
+      <td>{{student.height}}</td>
+      <td>{{student.weight/((student.height/100)*(student.height/100))}}</td>
+    </tr>
+    <tr *ngFor="let s of studentList">
+        <th scope="row">#</th>
+        <td>{{s.studentID}}</td>
+        <td>{{s.name}}</td>
+        <td>{{s.weight}}</td>
+        <td>{{s.height}}</td>
+        <td>{{s.weight/((s.height/100)*(s.height/100))}}</td>
+        <td *ngIf="s.bmi <= 25">ผอม</td>
+        <td *ngIf="s.bmi >= 25">อ้วน</td>
+      </tr>
+  </tbody>
+</table>
+
+<router-outlet></router-outlet>
