@@ -21,12 +21,12 @@ export class ProductCartComponent implements OnInit {
     if(val){
       let _index = -1
       this.cartList.forEach((object,index) => {
-        if(object.pId  == val.pId){
+        if(object.pId == val.pId){
           _index = index ;
         }
       });
       if (_index > -1){
-        this.cartList[_index].qty = Number(this.cartList)[_index].qty+Number(val.qty);
+        this.cartList[_index].qty = Number(this.cartList[_index].qty) + Number(val.qty);
       }else{
         this.cartList.push(JSON.parse(JSON.stringify(val)));
       }
